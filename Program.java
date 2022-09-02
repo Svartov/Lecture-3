@@ -10,6 +10,8 @@ public class Program {
         // Подключаем переменные и массив
         int number[] = new int[4];
         int MaxNum = number[0];
+        int max = 0;
+
 
         // Вводим элементы массива
         for(int i = 0; i < 4; i++){
@@ -17,12 +19,25 @@ public class Program {
             number[i] = in.nextInt();
         }
 
-        // Находим максимальный элемент
-        for(int j : number){
-            if(j > MaxNum)
-                MaxNum = j;
+        System.out.println(Arrays.toString(number));
+
+        for(int i : number){
+            max = max + i;
         }
 
+        if(max > 0) {
+                // Находим максимальный элемент из положительных чисел
+                for (int j : number) {
+                    if (j > MaxNum)
+                        MaxNum = j;
+            }
+        }else if(max < 0){
+                // Находим максимальный элемент из отрицательных чисел
+                for (int j : number) {
+                    if (j < MaxNum)
+                        MaxNum = j;
+                }
+        }
         // Выводим на экран
         System.out.println("Максимальный элемент : " + MaxNum);
 
